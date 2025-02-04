@@ -8,8 +8,6 @@ const App: Component = () => {
   onMount(() => {
     if (!surfaceRef) return;
     const ctx = surfaceRef.getContext("2d");
-    const offset = 10; // 5px = App padding (1px * 2) + canvas border (4px * 2)
-    const dpr = window.devicePixelRatio || 1;
     const width = window.innerWidth - surfaceRef.offsetLeft;
     const height = window.innerHeight - surfaceRef.offsetTop;
     surfaceRef.width = width;
