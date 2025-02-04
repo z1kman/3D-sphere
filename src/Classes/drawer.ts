@@ -31,13 +31,15 @@ export class Drawer {
     if (!this.surface) return;
     const { x, y } = position;
     const { r, g, b } = color;
-    const index = (this.width * y + x) * 4;
+    const index = (this.width * -y + x) * 4;
     const surface = this.surface;
 
-    surface.data[index] = r;
-    surface.data[index + 1] = g;
-    surface.data[index + 2] = b;
-    surface.data[index + 3] = 255;
+    if (x >= 0 && x < this.width && -y >= 0 && y < this.height) {
+      surface.data[index] = r;
+      surface.data[index + 1] = g;
+      surface.data[index + 2] = b;
+      surface.data[index + 3] = 255;
+    }
   }
 
   addLine({
