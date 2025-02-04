@@ -59,17 +59,12 @@ export class Drawer {
     const yStep = c1 / length;
 
     for (let i = 0; i < length; i++) {
-      this.addPixel(
-        {
-          x: Math.trunc(line1.x + xStep * i),
-          y: Math.trunc(line1.y + yStep * i),
-        },
-        {
-          r,
-          g,
-          b,
-        }
-      );
+      const position = {
+        x: Math.trunc(line1.x + xStep * i),
+        y: Math.trunc(line1.y + yStep * i),
+      };
+      const color = { r, g, b };
+      this.addPixel(position, color);
     }
   }
 
